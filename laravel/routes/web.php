@@ -1,5 +1,4 @@
 <?php
-
 Auth::routes();
 Route::get('/', 'Item\ItemController@index')->name('item.index');
 Route::get('/detail/{id}', 'Item\ItemController@detail')->name('item.detail');
