@@ -27,5 +27,27 @@
     </tr>
   </tbody>
 </table>
+
+@guest
+	<div align="center">
+		<form method="GET"action="{{ route('login') }}">
+			{{ csrf_field() }}
+			<button type="submit" class="btn btn-primary">ログイン</button>
+		</form>
+		<p>商品をカートに追加するにはログインしてください</p>
+	</div>
+@else
+	@if ($item->stock > 0)
+	<div align="center">
+		<form method="POST"action="{{ route('cart.add') }}">
+		{{ csrf_field() }}
+			<input type="hidden" name="item_id" value="{{ $item->id }}">
+			<button type="submit" class="btn btn-primary">カートに追加する</button>
+		</form>
+	</div>
+	@else
+		<div align="center"><button type="submit" class="btn btn-primary" disabled="disabled">入荷待ちです</button></div>
+@endif
+@endguest
 <a href="{{ route('item.index', ['id' => $item->id]) }}">商品一覧画面に戻る</a>
 @endsection
