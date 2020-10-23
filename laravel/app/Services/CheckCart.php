@@ -15,7 +15,7 @@ class CheckCart
                 'user_id' => $user_id
             ],
                 [
-                                                'qty' => 0
+            'qty' => 0
             ]
             )->increment('qty');
             $item->decrement('stock');
@@ -43,5 +43,10 @@ class CheckCart
     public function hoge()
     {
         return 'hoge';
+    }
+    
+
+    public function hogehoge()
+    {
     }
 }
