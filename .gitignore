@@ -1,1 +1,2 @@
 docker-config/mysql/data
+.php_cs.cache
