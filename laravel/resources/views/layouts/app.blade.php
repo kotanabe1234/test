@@ -31,8 +31,8 @@
                     </button>
 
                     <!-- Branding Image -->
-
-
+					<a class="navbar-brand" href="{{ route('item.index') }}">商品一覧</a>
+					<a class="navbar-brand" href="{{ route('cart.index') }}">カート一覧</a>
                 </div>
 
                 <div class="collapse navbar-collapse" id="app-navbar-collapse">

@@ -1,10 +1,14 @@
 <?php
 Auth::routes();
+
 Route::get('/', 'Item\ItemController@index')->name('item.index');
 Route::get('/detail/{id}', 'Item\ItemController@detail')->name('item.detail');
-Route::get('/detail/{id}', 'Item\ItemController@detail')->name('item.detail');
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function() {
-	Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::group(['prefix' => 'cart', 'middleware' => 'auth'], function() {
+	Route::get('/', 'Item\CartController@index')->name('cart.index');
+	Route::post('add', 'Item\CartController@add')->name('cart.add');
+	Route::post('delete', 'Item\CartController@delete')->name('cart.delete');
 });
 
 Route::group(['prefix' => 'admin'], function() {
@@ -21,4 +25,8 @@ Route::group(['prefix' => 'admin', 'middleware' => 'auth:admin'], function() {
 	Route::get('edit/{id}', 'Admin\ItemController@edit')->name('admin.edit');
 	Route::post('update/{id}', 'Admin\ItemController@update')->name('admin.update');
 	Route::post('logout', 'Admin\LoginController@logout')->name('admin.logout');
+});
+
+Route::get('/sample', function() {
+	return view('sample.index');
 });
