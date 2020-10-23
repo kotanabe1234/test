@@ -15,7 +15,7 @@ class CheckCart
                 'user_id' => $user_id
             ],
                 [
-                'qty' => 0
+            'qty' => 0
             ]
             )->increment('qty');
             $item->decrement('stock');
@@ -38,5 +38,15 @@ class CheckCart
         )->delete();
         Item::where(['id' => $cart->item_id])->increment('stock', $count);
         return true;
+    }
+
+    public function hoge()
+    {
+        return 'hoge';
+    }
+    
+
+    public function hogehoge()
+    {
     }
 }
