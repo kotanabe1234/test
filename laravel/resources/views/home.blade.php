@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+fffff
                 <div class="panel-heading">Dashboard</div>
 
                 <div class="panel-body">
